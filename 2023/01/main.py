@@ -15,6 +15,17 @@ def Calibration(calibration_list: list[str]) -> int:
 
 def CalibrationV2(calibration_list: list[str]) -> int:
     total: int = 0
+    string_numbers = [
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+    ]
     for string in calibration_list:
         num_only: list[str] = []
         for char in string:
