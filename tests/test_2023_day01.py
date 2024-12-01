@@ -1,6 +1,6 @@
 import unittest
 
-from main import Calibration, CalibrationV2
+from src import Calibration, CalibrationV2
 
 
 class TestCalibration(unittest.TestCase):
