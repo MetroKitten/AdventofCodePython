@@ -2,14 +2,10 @@ import re
 
 
 def find_muls(text: str):
-    list_of_muls: list[tuple[str, str]] = []
     uncorrupted = 0
     matches: list[tuple[str, str]] = re.findall(r"mul\((\d+),(\d+)\)", text)
     for match in matches:
-        list_of_muls.append(match)
-    for pair in list_of_muls:
-        left = int(pair[0])
-        right = int(pair[1])
+        left, right = map(int, match)
         uncorrupted += left * right
     return uncorrupted
 
