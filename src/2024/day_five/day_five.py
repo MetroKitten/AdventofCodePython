@@ -1,3 +1,6 @@
+iterations: int = 0
+
+
 def check_meets_rules(pages: list[int], rules: list[tuple[int, int]]) -> bool:
     for high, low in rules:
         if high in pages and low in pages:
@@ -9,6 +12,8 @@ def check_meets_rules(pages: list[int], rules: list[tuple[int, int]]) -> bool:
 
 
 def fix_failing_pages(pages: list[int], rules: list[tuple[int, int]]):
+    global iterations
+    iterations = iterations + 1
     failed_page = pages.copy()
     if check_meets_rules(failed_page, rules):
         return failed_page
@@ -68,6 +73,7 @@ def main() -> None:
 
         print(f"Correct Page Total: {correct_pages_total}")
         print(f"Fixed Page Total: {fixed_pages_total}")
+        print(f"Recursive Iterations: {iterations}")
 
 
 if __name__ == "__main__":
