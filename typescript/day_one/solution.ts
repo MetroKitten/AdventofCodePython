@@ -34,6 +34,22 @@ export function getTotal(args: SortedArrays): number {
   return total;
 }
 
+export function getSimilarityScore(args: SortedArrays): number {
+  let total: number = 0;
+  const rightMap = args.sortedRight.reduce((map, item) => {
+    map.set(item, (map.get(item) || 0) + 1);
+    return map;
+  }, new Map<number, number>());
+
+  for (const leftItem of args.sortedLeft) {
+    const occurances = rightMap.get(leftItem) || 0;
+    total += leftItem * occurances;
+  }
+  return total;
+}
+
 const { sortedLeft, sortedRight } = cleanData("./input.txt");
 const total = getTotal({ sortedLeft, sortedRight });
+const simTotal = getSimilarityScore({ sortedLeft, sortedRight });
 console.log("Total Distance:", total);
+console.log("Total Similarity Score:", simTotal);

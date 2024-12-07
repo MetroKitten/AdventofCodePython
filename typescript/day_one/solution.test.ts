@@ -1,4 +1,4 @@
-import { getTotal } from "./solution";
+import { getTotal, getSimilarityScore } from "./solution";
 
 describe("getTotal", () => {
   it("Returns the correct Total Distance", () => {
@@ -8,5 +8,16 @@ describe("getTotal", () => {
     };
     const result = getTotal(input);
     expect(result).toBe(3);
+  });
+});
+
+describe("getSimilarityScore", () => {
+  it("Returns the correct total Similarity Score", () => {
+    const input = {
+      sortedLeft: [1, 2, 3, 3, 3, 4],
+      sortedRight: [3, 3, 3, 4, 5, 9],
+    };
+    const result = getSimilarityScore(input);
+    expect(result).toBe(31);
   });
 });
