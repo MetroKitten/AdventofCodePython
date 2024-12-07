@@ -5,3 +5,30 @@ __pycache__
 .DS_Store
 input.txt
 __init__.py
+
+
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+dist/
+coverage/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Tooling
+.eslintcache
+.nyc_output/
+
+# Temporary files
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
