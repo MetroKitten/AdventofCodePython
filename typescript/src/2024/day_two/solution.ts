@@ -54,4 +54,4 @@ for (let report of reportList) {
     }
   }
 }
-console.log(safeReports);
+console.log("Total Safe Reports: ", safeReports);
