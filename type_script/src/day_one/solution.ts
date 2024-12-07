@@ -1,4 +1,6 @@
 import * as fs from "fs";
+import * as path from "path";
+import { fileURLToPath } from "url";
 
 type SortedArrays = {
   sortedLeft: number[];
@@ -47,8 +49,10 @@ export function getSimilarityScore(args: SortedArrays): number {
   }
   return total;
 }
-
-const { sortedLeft, sortedRight } = cleanData("./input.txt");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const filePath = path.join(__dirname, "input.txt");
+const { sortedLeft, sortedRight } = cleanData(filePath);
 const total = getTotal({ sortedLeft, sortedRight });
 const simTotal = getSimilarityScore({ sortedLeft, sortedRight });
 console.log("Total Distance:", total);

@@ -1,4 +1,6 @@
 import * as fs from "fs";
+import * as path from "path";
+import { fileURLToPath } from "url";
 
 function cleanData(filePath: string): number[][] {
   const data = fs.readFileSync(filePath, "utf8");
@@ -31,7 +33,10 @@ export function checkSafe(reportLine: number[]): boolean {
   return (isAscending || isDescending) && rightDiff;
 }
 
-const reportList: number[][] = cleanData("./input.txt");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const filePath = path.join(__dirname, "input.txt");
+const reportList: number[][] = cleanData(filePath);
 var safeReports: number = 0;
 for (let report of reportList) {
   if (checkSafe(report)) {
